@@ -7,7 +7,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             @foreach($businesses as $biz)
-            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col items-center justify-between hover:shadow-md transition-shadow">
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col items-center justify-center hover:shadow-md transition-shadow">
 
                 {{-- Contenedor de Imagen/Logo --}}
                 <div class="w-full aspect-video flex items-center justify-center mb-4">
@@ -32,7 +32,7 @@
                 <div class="text-center w-full">
                     <h3 class="text-lg font-bold text-gray-800 mb-4">{{ $biz->name }}</h3>
 
-                    {{-- Mejora: Aria-label dinámico para evitar enlaces idénticos --}}
+                    {{--Aria-label dinámico para evitar enlaces idénticos --}}
                     <a href="/{{$url}}/{{ $biz->slug }}"
                        aria-label="Ver catálogo completo y perfil de {{ $biz->name }}"
                        class="inline-block w-full py-2 bg-indigo-700 text-white rounded-lg font-bold text-sm hover:bg-indigo-800 transition-colors">

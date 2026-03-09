@@ -66,6 +66,7 @@
         <x-components-web.featured-businesses category="Fabricante"/>
     {{-- Premium Factories end --}}
 
+
     {{-- Premium Wholesalers  --}}
         <x-components-web.featured-businesses category="Mayorista"/>
     {{-- Premium Factories end --}}

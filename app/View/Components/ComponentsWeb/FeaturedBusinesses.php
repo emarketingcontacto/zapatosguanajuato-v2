@@ -16,6 +16,7 @@ class FeaturedBusinesses extends Component
 
     public function __construct(string $category)
     {
+        //get category
        $this->url= match($category){
             'Fabricante' => 'fabricantes-calzado-guanajuato',
             'Mayorista' => 'mayoristas-calzado-guanajuato',
