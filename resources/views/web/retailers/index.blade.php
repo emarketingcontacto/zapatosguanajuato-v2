@@ -82,7 +82,7 @@
     </section>
 
     {{-- FAQ Section --}}
-    <x-components-web.faq-section categoryName="Minoristas" />
+    <x-components-web.faq-section categoryName="minoristas" />
 
     {{-- SEO Dinámico JSON-LD --}}
     @push('head')
