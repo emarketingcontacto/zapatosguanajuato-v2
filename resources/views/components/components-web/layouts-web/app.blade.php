@@ -8,6 +8,11 @@
         <meta name="description" content="@yield('description', 'Encuentra proveedores en Guanajuato.')">
         @stack('head')
 
+        <!-- Google Tag Manager (noscript) -->
+            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZP9TGP6"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
         {{-- Open Graph / Facebook / WhatsApp --}}
         <meta property="og:type" content="website">
         <meta property="og:url" content="{{ url()->current() }}">
