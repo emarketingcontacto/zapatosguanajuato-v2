@@ -6,6 +6,9 @@
         {{-- seo --}}
         <title>@yield('title', 'Directorio de Calzado') | Zapatos Guanajuato </title>
         <meta name="description" content="@yield('description', 'Encuentra proveedores en Guanajuato.')">
+        {{-- ETIQUETA CANONICAL --}}
+        <link rel="canonical" href="{{ url()->current() }}" />
+
         @stack('head')
 
         <!-- Google Tag Manager (noscript) -->
