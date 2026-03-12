@@ -32,7 +32,9 @@ Route::prefix('mayoristas-calzado-guanajuato')->group(function () {
     Route::get('/{business:slug}', [WholesalerController::class, 'show'])->name('wholesalers.show');
 });
 
-// 3. MINORISTAS (Corregido para ser igual a los de arriba)
+/**
+ * SECCIÓN: MINORISTAS
+ */
 Route::prefix('minoristas-calzado-guanajuato')->group(function () {
     Route::get('/', [RetailerController::class, 'index'])->name('retailers.index');
     Route::get('/genero/{genero}', [RetailerController::class, 'showGenero'])->name('retailers.gender');
@@ -52,7 +54,7 @@ Route::get('/anunciate', Advertise::class)->name('web.advertise');
  * SECCIÓN: MODELOS / PRODUCTOS
  * Siguiendo el sitemap anterior, necesitaremos una ruta para el detalle del zapato.
  */
-Route::get('/modelo/{id}/show', [FactoryController::class, 'showModel'])->name('model.show');
+// Route::get('/modelo/{id}/show', [FactoryController::class, 'showModel'])->name('model.show');
 
 // --- Rutas de Administración (Breeze/Livewire) ---
 Route::view('dashboard', 'dashboard')
