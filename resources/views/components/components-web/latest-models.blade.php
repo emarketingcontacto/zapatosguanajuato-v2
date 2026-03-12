@@ -34,7 +34,17 @@
                             {{ $model->name }}
                         </h3>
 
-                        <a href="/modelo/{{ $model->id }}"
+                        @php
+                            //Ruta del biz segun la categoria
+                            $routeName = match($model->business->category->name){
+                                'Fabricante'=>'factories.show',
+                                'Mayorista'=>'wholesaler.show',
+                                'Minorista'=>'retailer.show',
+                                default    => 'factories.show',
+                            };
+                        @endphp
+                        {{-- este link debe de ir hacia el detalle del negocio, dependiendo su categoria --}}
+                        <a href="{{route($routeName, $model->business->slug)}}"
                         class="block w-full text-center bg-gray-900 text-white py-3 rounded-xl font-bold hover:bg-indigo-700 transition-colors">
                             Ver Detalles
                         </a>

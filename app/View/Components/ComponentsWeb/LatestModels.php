@@ -19,7 +19,7 @@ class LatestModels extends Component
      */
     public function render(): View|Closure|string
     {
-         $newModels = ShoeModel::with('business')
+         $newModels = ShoeModel::with('business.category')
             ->latest()
             ->take(4)
             ->get();
