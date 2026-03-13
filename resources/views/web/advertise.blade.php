@@ -1,3 +1,7 @@
+@php
+    $siteSettings = \App\Models\SiteSetting::all()->pluck('value', 'key');
+@endphp
+
 <x-components-web.layouts-web.app>
     {{-- Hero de Venta --}}
     <section class="bg-gray-900 py-24 relative overflow-hidden">
@@ -9,8 +13,11 @@
             <p class="text-gray-400 max-w-2xl mx-auto text-lg mb-10 font-medium">
                 Únete al directorio especializado que posiciona tu calzado ante compradores mayoristas y minoristas de todo el país.
             </p>
-            <a href="https://wa.me/TU_NUMERO?text=Hola!%20Vengo%20de%20Sapica%20y%20quiero%20información%20Premium"
-               class="inline-flex items-center gap-3 bg-green-500 text-white px-10 py-5 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-green-600 hover:scale-105 transition-all shadow-xl shadow-green-500/20">
+            <a
+                class="inline-flex items-center gap-3 bg-green-500 text-white px-10 py-5 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-green-600 hover:scale-105 transition-all shadow-xl shadow-green-500/20"
+                href="https://wa.me/{{ $siteSettings['whatsapp'] }}?text=Hola!%20Quiero%20información%20Premium"
+                target="_blank"
+                >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">...</svg>
                 Hablar con un Consultor
             </a>
@@ -65,7 +72,11 @@
                         <span class="text-white text-4xl font-black uppercase italic">Consulta</span>
                         <span class="text-indigo-400 text-xs font-bold uppercase tracking-tighter">precios especiales SAPICA</span>
                     </div>
-                    <a href="https://wa.me/TU_NUMERO" class="block w-full text-center py-5 bg-indigo-600 text-white rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-white hover:text-gray-900 transition-all">
+                    <a
+                        class="block w-full text-center py-5 bg-indigo-600 text-white rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-white hover:text-gray-900 transition-all"
+                        href="https://wa.me/{{ $siteSettings['whatsapp'] }}?text=Hola!%20Me%20interesa%20formar%20parte%20de%20zapatosguanajuato.com%20y%20potenciar%20mi%20marca.%20¿Me%20podrían%20dar%20más%20información?"
+                        target="_blank"
+                    >
                         Solicitar Acceso Premium
                     </a>
                 </div>
