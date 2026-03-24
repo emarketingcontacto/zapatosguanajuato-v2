@@ -1,12 +1,15 @@
 <?php
 
 use App\Http\Controllers\Advertise;
+// use App\Http\Controllers\BeneficiosController;
 use App\Http\Controllers\FactoryController;
 use App\Http\Controllers\RetailerController;
 use App\Http\Controllers\WholesalerController;
 use App\Http\Controllers\TrackingController;
 use App\Livewire\Home;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Artisan;
 
 //Home
 Route::get('/', Home::class);
@@ -14,6 +17,11 @@ Route::get('/', Home::class);
 /**
  * SECCIÓN: FABRICANTES
 */
+Route::get('/fabricantes-calzado-guanajuato/genero/hombre/{any?}', function ($any = null) {
+    $url = '/fabricantes-calzado-guanajuato/genero/hombres' . ($any ? '/' . $any : '');
+    return Redirect::to($url, 301);
+})->where('any', '.*');
+
 Route::prefix('fabricantes-calzado-guanajuato')->group(function () {
     Route::get('/', [FactoryController::class, 'index'])->name('factories.index');
     Route::get('/genero/{genero}', [FactoryController::class, 'showGenero'])->name('factories.gender');
@@ -49,12 +57,8 @@ Route::post('/tracking/click/{business}', [TrackingController::class, 'store'])-
 //Advertise
 Route::get('/anunciate', Advertise::class)->name('web.advertise');
 
-
-/**
- * SECCIÓN: MODELOS / PRODUCTOS
- * Siguiendo el sitemap anterior, necesitaremos una ruta para el detalle del zapato.
- */
-// Route::get('/modelo/{id}/show', [FactoryController::class, 'showModel'])->name('model.show');
+//Beneficios
+//Route::get('/beneficios', BeneficiosController::class)->name('web.beneficios');
 
 // --- Rutas de Administración (Breeze/Livewire) ---
 Route::view('dashboard', 'dashboard')
@@ -66,3 +70,12 @@ Route::view('profile', 'profile')
     ->name('profile');
 
 require __DIR__.'/auth.php';
+
+//-- Server Routes --//
+Route::get('/preparar-servidor/clear', function () {
+    Artisan::call('config:clear');
+    Artisan::call('route:cache');
+    Artisan::call('view:clear');
+    Artisan::call('cache:clear');
+    return "✅ Caché del servidor optimizada.";
+});

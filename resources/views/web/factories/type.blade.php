@@ -129,8 +129,8 @@
                     <div class="col-span-full py-24 text-center bg-white rounded-[3rem] border-2 border-dashed border-gray-200">
                         <div class="text-6xl mb-4" role="img" aria-label="Sin resultados">👞</div>
                         <h3 class="text-xl font-bold text-gray-900 uppercase">Sin resultados específicos</h3>
-                        <p class="text-gray-500 max-w-xs mx-auto mt-2 text-sm">No hay fabricantes de {{ $subcategory->name }} para {{ $gender }} registrados aún.</p>
-                        <a href="{{ route('factories.gender', $gender) }}" class="inline-block mt-6 text-indigo-600 font-black uppercase text-xs border-b-2 border-indigo-600 pb-1">Ver todo {{ $gender }}</a>
+                        <p class="text-gray-500 max-w-xs mx-auto mt-2 text-sm">No hay fabricantes de {{ $subcategory->name }} para {{ $genderName }} registrados aún.</p>
+                        <a href="{{ route('factories.gender', lcfirst($genderName)) }}" class="inline-block mt-6 text-indigo-600 font-black uppercase text-xs border-b-2 border-indigo-600 pb-1">Ver todo {{ $genderName }}</a>
                     </div>
                 @endforelse
             </div>

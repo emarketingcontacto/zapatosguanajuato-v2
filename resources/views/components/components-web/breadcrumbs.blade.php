@@ -35,12 +35,14 @@
 
         {{-- Nivel 2: Género --}}
         @if(isset($gender))
+
             <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                 <span class="mx-3 text-gray-300" aria-hidden="true">/</span>
-                <span itemprop="name" class="{{ !isset($type) && !isset($business) ? 'text-indigo-600' : '' }}">{{ $gender }}</span>
+                {{-- <span itemprop="name" class="{{ !isset($type) && !isset($business) ? 'text-indigo-600' : '' }}">{{ $gender }}</span> --}}
+                <a class="text-indigo-600" href="{{route('factories.gender',$gender)}}">{{$gender}}</a>
                 <meta itemprop="position" content="{{ $pos++ }}" />
-                {{-- Nota: Para el último elemento no siempre es necesario el <a> si es la pág actual --}}
             </li>
+
         @endif
 
         {{-- Nivel 3: Tipo --}}
