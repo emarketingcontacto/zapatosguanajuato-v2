@@ -8,7 +8,7 @@
     <a href="{{ $waUrl }}"
        id="wa-track-btn-{{ $business->id }}"
        target="_blank"
-       {{ $attributes->merge(['class' => 'inline-flex items-center justify-center w-full gap-2 px-8 py-4 bg-[#25D366] text-white font-bold rounded-xl hover:bg-[#128C7E] transition-all transform hover:scale-105 shadow-xl']) }}>
+       {{ $attributes->merge(['class' => 'btn-wa-contact-business inline-flex items-center justify-center w-full gap-2 px-8 py-4 bg-[#25D366] text-white font-bold rounded-xl hover:bg-[#128C7E] transition-all transform hover:scale-105 shadow-xl']) }}>
         <i class="fab fa-whatsapp text-2xl"></i>
         Contactar por WhatsApp
     </a>
